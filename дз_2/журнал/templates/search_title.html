@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Научный электронный журнал - Поиск</title>
+    {% load static %}
+    <style>
+        body 
+        {
+            background-image: url('/static/images/1.png');
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .content {
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 400px;
+            margin: auto;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .button-group button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            width: 48%;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Научный электронный журнал - Поиск</h1>
+        <form method="post" action="{% url 'журнал:search_title' %}">
+            {% csrf_token %}
+            <input type="text" name="title" placeholder="Search by title">
+            <div class="button-group">
+                <button type="submit" style="margin: 0 auto;">Search</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

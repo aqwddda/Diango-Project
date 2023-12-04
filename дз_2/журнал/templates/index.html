@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Научный электронный журнал</title>
+    {% load static %}
+    <style>
+        body {
+            background-image: url('/static/images/1.png');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #d4d4d4;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            opacity:0.85;
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        a {
+            color: #333;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .search-box {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .login-register-box {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            display: block;
+            float: right;
+            margin-bottom: 20px;
+        }
+        
+        .login-register-box a {
+            color: #fff;
+            background-color: #333;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="search-box">
+            <a href="/search_title/">Поиск</a>
+        </div>
+        <div class="login-register-box">
+            <a href="/login/">Вход</a>
+            <a href="/register/">Регистрация</a>
+        </div>
+        
+        <h1>Научный электронный журнал</h1>
+        
+        {% for article in articles %}
+        <h2 style="font-size: 14px;"><a href="/{{ article.id }}/">{{ article.title }}</a></h2>
+        <p>Автор: {{ article.author }}</p>
+    {% endfor %}
+    </div>
+</body>
+</html>
